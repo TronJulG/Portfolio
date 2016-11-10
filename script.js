@@ -23,40 +23,12 @@ $('body').on('click','.pop-close, .pop-up-bg',function(e){
 
 
 
-
- var slider=$('.gems'), sliderInitial=$('.gems').html();
-
-
-function sliderGo(slider){
+ var slider=$('.gems'), slides=slider.find('li').length, sliderWidth=slider.find('li').width();
  slider.wrap('<div class="slider_width" data-index="0" />');
- var slides=slider.find('li').length, sliderWidth=slider.find('li').width()
  var sliderWrap=slider.parents('.slider_width');
  sliderWrap.width(sliderWidth);
  sliderWrap.append('<a href="" class="arrow arrow_1"><img class="arrow_1" src="images/1.jpg"></a>')
  sliderWrap.append('<a href="" class="arrow arrow_2"><img class="arrow_2" src="images/2.jpg"></a>')
-}
-
-function destroySlider(slider, sliderInitial){
-	slider.parents('.slider_width').replaceWith('<div class="gems">'+sliderInitial+'</div>')
-}
-
-if($(window).width()>1000){
-	sliderGo(slider);
-}
-
-
-$(window).resize(function(){
-	//console.log($(window).width());
-	if($(window).width()<1000){
-		destroySlider(slider, sliderInitial)
-	}
-	else{
-		sliderGo($('.gems'));
-	}
-})
-
-
-
 
  $('.arrow').click(function(e){
 	 e.preventDefault();
